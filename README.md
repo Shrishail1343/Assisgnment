@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Scroll-Driven Hero Section Animation
+
+A scroll-based hero section animation built with **Next.js**, **Tailwind CSS**, and **GSAP ScrollTrigger**.
+
+## Reference
+
+Inspired by: [https://paraschaturvedi.github.io/car-scroll-animation](https://paraschaturvedi.github.io/car-scroll-animation)
+
+## Features
+
+- **Initial load animation** — headline letters stagger-fade in, stat boxes slide up
+- **Scroll-driven car animation** — McLaren 720S moves left to right tied to scroll progress
+- **Expanding trail** — green trail grows behind the car as it moves
+- **Letter reveal** — each headline letter lights up as the car passes it
+- **Stat boxes** — 4 colored metric boxes fade in at staggered scroll intervals
+- **Scroll lock** — page locks in place until the full animation completes
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [Tailwind CSS](https://tailwindcss.com/) v4
+- [GSAP](https://gsap.com/) + ScrollTrigger
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/
+    globals.css        # Brand colors + dark base styles
+    layout.tsx
+    page.tsx
+  components/
+    hero/
+      HeroSection.tsx  # All GSAP animation logic
+      HeroTrack.tsx    # Viewport-height container
+      Road.tsx         # Dark road band
+      Car.tsx          # McLaren PNG (scroll-animated)
+      Trail.tsx        # Expanding green trail
+      Headline.tsx     # Per-letter animated text
+      StatBoxes.tsx    # 4 colored metric boxes
+public/
+  car-top-view.png     # McLaren 720S top-view image
+```
